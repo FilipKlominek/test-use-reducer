@@ -9,16 +9,16 @@ function App() {
         return (
             <>
                 <h1>Login to your app!</h1>
-                    <form>
-                        <input
-                            type={'text'}
-                            value={username}
-                            onChange={(e) => {
-                                setUsername(e.target.value)
-                            }}
-                        />
-                        <button onClick={() => setLoggedIn(true)}>Login</button>
-                    </form>
+                <form>
+                    <input
+                        type={'text'}
+                        value={username}
+                        onChange={(e) => {
+                            setUsername(e.target.value)
+                        }}
+                    />
+                    <button onClick={() => setLoggedIn(true)}>Login</button>
+                </form>
             </>
         );
     } else {
