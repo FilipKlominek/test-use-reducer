@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {createContext, useContext, useState} from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [username, setUsername] = useState('');
+    const [isLoggedIn, setLoggedIn] = useState(false);
+
+    if (!isLoggedIn) {
+        return (
+            <>
+                <h1>Login to your app!</h1>
+                    <form>
+                        <input
+                            type={'text'}
+                            value={username}
+                            onChange={(e) => {
+                                setUsername(e.target.value)
+                            }}
+                        />
+                        <button onClick={() => setLoggedIn(true)}>Login</button>
+                    </form>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <h1>Hello!</h1>
+                <h2>{username}</h2>
+                <button onClick={() => setLoggedIn(false)}>Logout</button>
+            </>
+        )
+    }
 }
 
 export default App;
